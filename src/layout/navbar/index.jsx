@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import chapeu from '../../assets/chapeu 11.png'
+import MenuIcon from '@mui/icons-material/Menu';
 
 const pages = ['Inicio', 'Projetos', 'Sobre'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -65,8 +66,9 @@ function NavBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color='default'
             >
+              <MenuIcon />
               <Menu open={false}/>
             </IconButton>
             <Menu
@@ -110,7 +112,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <img src={chapeu} alt="logo" />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
