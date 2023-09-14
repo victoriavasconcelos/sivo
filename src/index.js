@@ -10,21 +10,26 @@ import Home from './pages/home';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
+    children: [
+      {
+        path: "/projetos",
+        element: <Projetos />
+      }
+    ]
   },
   {
-    path: "/projetos",
-    element: <Projetos />
+    path: "/login",
   },
   {
-    path: "/home",
-    element: <Home />
+    path: "/app",
+    element: <App />
   }
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

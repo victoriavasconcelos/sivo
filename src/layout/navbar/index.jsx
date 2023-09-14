@@ -10,6 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import chapeu from '../../assets/chapeu 11.png'
 
 const pages = ['Inicio', 'Projetos', 'Sobre'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,7 +38,7 @@ function NavBar() {
 
   return (
     <AppBar position="static" style={{ background: 'black'}}>
-      <Container maxWidth="xl">
+      <Container maxWidth style={{ paddingRight: 60}}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -54,7 +55,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <img src={chapeu} alt="logo" />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
