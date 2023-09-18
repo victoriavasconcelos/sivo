@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background-color: #1f5372;
+}
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+form{
+  font-family: Arial;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+form input, form textarea {
+  outline: unset;
+  padding: 20px;
+  width: 500px;
+  border: 1px solid cornflowerblue;
+  border-radius: 20px;
+}
+
+form input [type=submit] {
+  background-color: cornflowerblue;
+  color: white;
+  cursor: pointer;
+}
+
+form label {
+  margin-left: 10px;
+}
+
