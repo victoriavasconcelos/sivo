@@ -38,7 +38,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static" style={{ background: 'black'}}>
+    <AppBar position="static" id = "navBar">
       <Container maxWidth style={{ paddingRight: 60}}>
         <Toolbar disableGutters>
           <Typography
