@@ -1,25 +1,26 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import * as React from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import Menu from '@mui/material/Menu'
+import Container from '@mui/material/Container'
+import Avatar from '@mui/material/Avatar'
+import Button from '@mui/material/Button'
+import Tooltip from '@mui/material/Tooltip'
+import MenuItem from '@mui/material/MenuItem'
 import chapeu from '../../assets/chapeu 11.png'
-import MenuIcon from '@mui/icons-material/Menu';
-import { useNavigate } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu'
+import { useNavigate } from 'react-router-dom'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const pages = [
   {name: 'Inicio', path: '/'},
   {name: 'Projetos', path: '/projetos'},
   {name: 'Criar Projeto', path: '/criar-projeto'}
-];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+]
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -74,7 +75,7 @@ function NavBar() {
               onClick={handleOpenNavMenu}
               color='default'
             >
-              <MenuIcon />
+              <MenuIcon fontSize='large'/>
               <Menu open={false}/>
             </IconButton>
             <Menu
@@ -135,7 +136,7 @@ function NavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <AccountCircleIcon fontSize='large'/>
               </IconButton>
             </Tooltip>
             <Menu
@@ -164,6 +165,6 @@ function NavBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }
-export default NavBar;
+export default NavBar
