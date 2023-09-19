@@ -1,4 +1,3 @@
-import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -6,7 +5,6 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
 import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
@@ -14,6 +12,7 @@ import chapeu from '../../assets/chapeu 11.png'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useNavigate } from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useState } from 'react'
 
 const pages = [
   {name: 'Inicio', path: '/'},
@@ -23,8 +22,8 @@ const pages = [
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
@@ -48,11 +47,10 @@ function NavBar() {
     <AppBar position="static" style={{ background: 'black'}}>
       <Container maxWidth style={{ paddingRight: 60}}>
         <Toolbar disableGutters>
-          <Typography
+          <Button
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            onClick={_ => navigate('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -64,7 +62,7 @@ function NavBar() {
             }}
           >
             <img src={chapeu} alt="logo" />
-          </Typography>
+          </Button>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -103,11 +101,10 @@ function NavBar() {
               ))}
             </Menu>
           </Box>
-          <Typography
+          <Button
             variant="h5"
             noWrap
-            component="a"
-            href="/"
+            onClick={_ => navigate('/')}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -120,13 +117,13 @@ function NavBar() {
             }}
           >
             <img src={chapeu} alt="logo" />
-          </Typography>
+          </Button>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page.name}
                 onClick={_ => navigate(page.path)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', marginRight: 2}}
               >
                 {page.name}
               </Button>
@@ -136,7 +133,7 @@ function NavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AccountCircleIcon fontSize='large'/>
+                <AccountCircleIcon fontSize='large' sx={{color: 'white'}}/>
               </IconButton>
             </Tooltip>
             <Menu
