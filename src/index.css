@@ -62,13 +62,7 @@ form label {
   margin-left: 10px;
 }
 
-#foot {
-  background-color: var(--cor-tres);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 10px;
-}
+
 .icons {
   color: var(--cor-branco);
 }
