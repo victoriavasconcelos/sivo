@@ -1,51 +1,56 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import Menu from '@mui/material/Menu'
+import Container from '@mui/material/Container'
+import Button from '@mui/material/Button'
+import Tooltip from '@mui/material/Tooltip'
+import MenuItem from '@mui/material/MenuItem'
 import chapeu from '../../assets/chapeu 11.png'
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from '@mui/icons-material/Menu'
+import { useNavigate } from 'react-router-dom'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useState } from 'react'
 
-const pages = ['Inicio', 'Projetos', 'Sobre'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+  {name: 'Inicio', path: '/'},
+  {name: 'Projetos', path: '/projetos'},
+  {name: 'Criar Projeto', path: '/criar-projeto'}
+]
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
     console.log(event)
-    setAnchorElNav(event.currentTarget);
-  };
+    setAnchorElNav(event.currentTarget)
+  }
   const handleOpenUserMenu = (event) => {
     console.log(event)
-    setAnchorElUser(event.currentTarget);
-  };
+    setAnchorElUser(event.currentTarget)
+  }
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+    setAnchorElUser(null)
+  }
 
   return (
     <AppBar position="static" id = "navBar">
       <Container maxWidth style={{ paddingRight: 60}}>
         <Toolbar disableGutters>
-          <Typography
+          <Button
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            onClick={_ => navigate('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -57,7 +62,7 @@ function NavBar() {
             }}
           >
             <img src={chapeu} alt="logo" />
-          </Typography>
+          </Button>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -68,7 +73,7 @@ function NavBar() {
               onClick={handleOpenNavMenu}
               color='default'
             >
-              <MenuIcon />
+              <MenuIcon fontSize='large'/>
               <Menu open={false}/>
             </IconButton>
             <Menu
@@ -90,17 +95,16 @@ function NavBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography onClick={_ => navigate(page.path)} textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Typography
+          <Button
             variant="h5"
             noWrap
-            component="a"
-            href="/"
+            onClick={_ => navigate('/')}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -113,15 +117,15 @@ function NavBar() {
             }}
           >
             <img src={chapeu} alt="logo" />
-          </Typography>
+          </Button>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                key={page.name}
+                onClick={_ => navigate(page.path)}
+                sx={{ my: 2, color: 'white', display: 'block', marginRight: 2}}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
@@ -129,7 +133,7 @@ function NavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <AccountCircleIcon fontSize='large' sx={{color: 'white'}}/>
               </IconButton>
             </Tooltip>
             <Menu
@@ -158,6 +162,6 @@ function NavBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }
-export default NavBar;
+export default NavBar
