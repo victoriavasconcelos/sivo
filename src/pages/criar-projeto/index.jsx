@@ -12,8 +12,8 @@ export default function CriarProjeto (){
     const [cronograma, setCronograma] = useState("")
     
     return (
-        <section>
-            <form className="forms">
+        <section className='plano_fundo'>
+            <form className='forms'>
                 <Grid container spacing={2}>
                     <Grid container item xs={12} spacing={2}>
                         <Grid item xs={6}>
