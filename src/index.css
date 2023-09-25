@@ -8,7 +8,7 @@
   
 }
 
-.plano_fundo {
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -62,7 +62,10 @@ form label {
   margin-left: 10px;
 }
 
-
+#foot {
+  background-color: var(--cor-tres);
+  color: var(--cor-branco);
+}
 .icons {
   color: var(--cor-branco);
 }
