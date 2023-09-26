@@ -19,7 +19,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: auto;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -61,7 +61,10 @@ form label {
   margin-left: 10px;
 }
 
-
+#foot {
+  background-color: var(--cor-tres);
+  color: var(--cor-branco);
+}
 .icons {
   color: var(--cor-branco);
 }
