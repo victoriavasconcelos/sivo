@@ -7,7 +7,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Projetos from './pages/projetos';
 import Home from './pages/home';
 import CriarProjeto from './pages/criar-projeto';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+const theme = createTheme({
+  palette: {
+    mode: "dark"
+  }
+})
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/criar-projeto",
-        element: <CriarProjeto/>
+        element: <CriarProjeto />
       },
     ]
   },
@@ -34,7 +40,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

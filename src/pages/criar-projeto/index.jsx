@@ -1,8 +1,8 @@
 import { Button, Grid, TextField } from "@mui/material";
-import { blue } from "@mui/material/colors";
 import { useState } from "react";
 
-export default function CriarProjeto (){
+
+export default function CriarProjeto() {
 
     const [nome, setNome] = useState("")
     const [disciplina, setDisciplina] = useState("")
@@ -10,21 +10,21 @@ export default function CriarProjeto (){
     const [vagas, setVagas] = useState("")
     const [tempo, setTempo] = useState("")
     const [cronograma, setCronograma] = useState("")
-    
+
     return (
         <section>
             <form className="forms">
                 <Grid container spacing={2}>
                     <Grid container item xs={12} spacing={2}>
                         <Grid item xs={6}>
-                            <TextField
-                                label="Nome do Projeto"
-                                required
-                                fullWidth
-                                value={nome}
-                                onChange={e => setNome(e.target.value)}
-                                multiline
-                            />
+                                <TextField
+                                    label="Nome do Projeto"
+                                    required
+                                    fullWidth
+                                    value={nome}
+                                    onChange={e => setNome(e.target.value)}
+                                    multiline
+                                />
                         </Grid>
                         <Grid item xs={6}>
                             <TextField
@@ -90,7 +90,7 @@ export default function CriarProjeto (){
                                 variant="contained"
                                 type="submit"
                                 fullWidth
-                                
+
                             >
                                 Concluir
                             </Button>
