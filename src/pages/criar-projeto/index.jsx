@@ -90,7 +90,7 @@ export default function CriarProjeto() {
                                 variant="contained"
                                 type="submit"
                                 fullWidth
-
+                                color="success"
                             >
                                 Concluir
                             </Button>

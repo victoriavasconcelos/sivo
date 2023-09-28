@@ -33,6 +33,7 @@ section {
   align-items: center;
   justify-content: center;
   padding-top: 100px;
+  margin-bottom: 100px;
 }
 form{
   font-family: Arial;
@@ -67,4 +68,12 @@ form label {
 }
 .icons {
   color: var(--cor-branco);
+}
+
+h4 {
+  color: lightgray;
+}
+
+span {
+  color: lightgray;
 }

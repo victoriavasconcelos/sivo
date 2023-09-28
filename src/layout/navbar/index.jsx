@@ -17,9 +17,11 @@ import { useState } from 'react'
 const pages = [
   {name: 'Inicio', path: '/'},
   {name: 'Projetos', path: '/projetos'},
-  {name: 'Criar Projeto', path: '/criar-projeto'}
 ]
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+const settings = [
+  {name: 'Perfil', path: '/perfil'},
+  {name: 'Logout', path: '/login'},
+]
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -153,8 +155,8 @@ function NavBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <Button textAlign='center' onClick={_ => navigate(setting.path)} sx={{color: 'white'}}>{setting.name}</Button>
                 </MenuItem>
               ))}
             </Menu>
