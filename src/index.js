@@ -5,10 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Projetos from './pages/projetos';
-import Home from './pages/home';
+import Main from './pages/main';
 import CriarProjeto from './pages/criar-projeto';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Perfil from './pages/perfil';
+import Home from './pages/home';
 
 const theme = createTheme({
   palette: {
@@ -18,8 +19,12 @@ const theme = createTheme({
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Main />,
     children: [
+      {
+        path: "/",
+        element: <Home />
+      },
       {
         path: "/projetos",
         element: <Projetos />
