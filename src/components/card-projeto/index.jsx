@@ -1,27 +1,76 @@
-import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, Chip, Grid, Stack, Typography } from "@mui/material";
 
+const card = {
+    definicao: "O projeto visa desenvolver uma plataforma online interativa e educacional voltada para o ensino e aprendizado das ciências ambientais. A plataforma será uma ferramenta abrangente que oferecerá recursos educativos, como vídeos, animações, quizzes e fóruns de discussão, com o objetivo de aumentar a compreensão e conscientização sobre questões ambientais.",
+    professor: {
+      nome: "Rafaella Chrystiane de Moura Matos",
+      id: 1,
+    },
+    vagas: 20,
+    disciplinas: ["Front", "Web", "Back"]
+}
 export default function CardProjeto() {
-    return (
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Word of the Day
+  return (
+    <Card sx={{ width: 350, backgroundColor: '#151334' }}>
+      <CardContent>
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <Typography fontWeight={600} color="text.primary" gutterBottom>
+              Definição do Projeto:
             </Typography>
-            <Typography variant="h5" component="div">
-              benevolent
+          </Grid>
+          <Grid item>
+            <Typography sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: "3",
+              WebkitBoxOrient: "vertical",
+            }}>
+              {card.definicao}
             </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
+          </Grid>
+          <Grid item container spacing={1} direction='row' xs={12}>
+            <Grid item>
+              <Typography fontWeight={600} color="text.primaru">
+                Docente:
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography color="text.primaru">
+                {card.professor.nome}
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item container spacing={1} direction='row' xs={12}>
+            <Grid item>
+              <Typography fontWeight={600} color="text.primaru">
+                Número de vagas:
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography color="text.primaru">
+                {card.vagas}
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography fontWeight={600} color="text.primary" gutterBottom>
+              Disiplinas:
             </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
-      );
+          </Grid>
+          <Grid item>
+            <Stack spacing={2} direction='row'>
+              {card.disciplinas.map(d => (
+                <Chip label={d} />
+              ))}
+            </Stack>
+          </Grid>
+        </Grid>
+      </CardContent>
+      <CardActions sx={{ justifyContent: 'end' }}>
+        <Button color="primary" size="small" variant="contained">Learn More</Button>
+      </CardActions>
+    </Card>
+  );
 }
