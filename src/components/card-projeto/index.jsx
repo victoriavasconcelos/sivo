@@ -1,7 +1,11 @@
 import { Button, Card, CardActions, CardContent, Chip, Grid, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const card = {
-    definicao: "O projeto visa desenvolver uma plataforma online interativa e educacional voltada para o ensino e aprendizado das ciências ambientais. A plataforma será uma ferramenta abrangente que oferecerá recursos educativos, como vídeos, animações, quizzes e fóruns de discussão, com o objetivo de aumentar a compreensão e conscientização sobre questões ambientais.",
+    titulo: "Plataforma Interativa de Aprendizado para Ciências Ambientais",
+    definicao: "O projeto visa desenvolver uma plataforma online interativa e educacional voltada para o ensino e aprendizado das " +
+    "ciências ambientais. A plataforma será uma ferramenta abrangente que oferecerá recursos educativos, como vídeos, animações, " +
+    "quizzes e fóruns de discussão, com o objetivo de aumentar a compreensão e conscientização sobre questões ambientais.",
     professor: {
       nome: "Rafaella Chrystiane de Moura Matos",
       id: 1,
@@ -10,13 +14,14 @@ const card = {
     disciplinas: ["Front", "Web", "Back"]
 }
 export default function CardProjeto() {
+  const navigate = useNavigate()
   return (
     <Card sx={{ width: 350, background: '#151334' }}>
       <CardContent>
         <Grid container spacing={1}>
           <Grid item xs={12}>
-            <Typography fontWeight={600} color="text.primary" gutterBottom>
-              Definição do Projeto:
+            <Typography fontWeight={600} gutterBottom>
+            {card.titulo}
             </Typography>
           </Grid>
           <Grid item>
@@ -32,7 +37,7 @@ export default function CardProjeto() {
           </Grid>
           <Grid item container spacing={1} direction='row' xs={12}>
             <Grid item>
-              <Typography fontWeight={600} color="text.primaru">
+              <Typography fontWeight={600}>
                 Docente:
               </Typography>
             </Grid>
@@ -44,7 +49,7 @@ export default function CardProjeto() {
           </Grid>
           <Grid item container spacing={1} direction='row' xs={12}>
             <Grid item>
-              <Typography fontWeight={600} color="text.primaru">
+              <Typography fontWeight={600}>
                 Número de vagas:
               </Typography>
             </Grid>
@@ -55,7 +60,7 @@ export default function CardProjeto() {
             </Grid>
           </Grid>
           <Grid item xs={12}>
-            <Typography fontWeight={600} color="text.primary" gutterBottom>
+            <Typography fontWeight={600} gutterBottom>
               Disiplinas:
             </Typography>
           </Grid>
@@ -69,7 +74,7 @@ export default function CardProjeto() {
         </Grid>
       </CardContent>
       <CardActions sx={{ justifyContent: 'end' }}>
-        <Button color="primary" size="small" variant="contained">Learn More</Button>
+        <Button onClick={_ => navigate('/detalhes-projeto')} color="primary" size="small" variant="contained">Learn More</Button>
       </CardActions>
     </Card>
   );

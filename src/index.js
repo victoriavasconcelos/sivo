@@ -10,6 +10,7 @@ import CriarProjeto from './pages/criar-projeto';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Perfil from './pages/perfil';
 import Home from './pages/home';
+import DetalhesProjeto from './pages/detalhes-projeto';
 
 const theme = createTheme({
   palette: {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/perfil",
         element: <Perfil />
+      },
+      {
+        path: "/detalhes-projeto",
+        element: <DetalhesProjeto />
       },
     ]
   },
