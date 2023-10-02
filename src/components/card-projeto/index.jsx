@@ -16,7 +16,7 @@ const card = {
 export default function CardProjeto() {
   const navigate = useNavigate()
   return (
-    <Card sx={{ width: 350, background: '#151334' }}>
+    <Card sx={{ width: "20vw", background: '#151334' }}>
       <CardContent>
         <Grid container spacing={1}>
           <Grid item xs={12}>

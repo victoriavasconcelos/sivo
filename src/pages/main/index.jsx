@@ -7,7 +7,7 @@ export default function Main() {
     return (
         <div>
             <NavBar />
-            <div>
+            <div style={{minHeight:"100vh"}}>
                 <Outlet />
             </div>
             <Footer />

@@ -65,6 +65,14 @@ form label {
 #foot {
   background-color: var(--cor-tres);
   color: var(--cor-branco);
+  padding-top: 25px;
+  padding-left: 25px;
+  
+}
+
+#foot img {
+  width: 60%;
+  height: 70%;
 }
 .icons {
   color: var(--cor-branco);
