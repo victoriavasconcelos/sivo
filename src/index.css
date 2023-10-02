@@ -5,6 +5,7 @@
   --cor-branco: #ffffff;
   --cor-preto: #000000;  
   --cor-flowerblue: cornflowerblue;
+  --cor-lightgray: lightgray;
   
 }
 
@@ -35,9 +36,6 @@ section {
   padding-top: 50px;
   margin-bottom: 100px;
 }
-form{
-  font-family: Arial;
-}
 
 form div {
   display: flex;
@@ -45,22 +43,7 @@ form div {
   margin-bottom: 30px;
 }
 
-form input, form textarea {
-  outline: unset;
-  padding: 20px;
-  width: 500px;
-  border: 1px solid var(--cor-flowerblue);
-}
 
-form input [type=submit] {
-  background-color: var(--cor-flowerblue);
-  color: var(--cor-branco);
-  cursor: pointer;
-}
-
-form label {
-  margin-left: 10px;
-}
 
 #foot {
   background-color: var(--cor-tres);
@@ -79,13 +62,35 @@ form label {
 }
 
 h4 {
-  color: lightgray;
+  color: var(--cor-lightgray);
 }
 
 span {
-  color: lightgray;
+  color: var(--cor-lightgray);
 }
 
 p {
-  color: lightgray;
+  color: var(--cor-lightgray);
+}
+
+
+#logoLateral {
+  background-color: var(--cor-tres);
+  width: fit-content;
+  height: 100%;
+  padding-inline: 50px;
+}
+
+#logoLateral img {
+  max-width: 100%;
+}
+
+#formLogin {
+  background-color: var(--cor-tres);
+  padding: 20px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  flex-direction: column;
 }

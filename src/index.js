@@ -11,6 +11,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Perfil from './pages/perfil';
 import Home from './pages/home';
 import DetalhesProjeto from './pages/detalhes-projeto';
+import Login from './pages/login';
 
 const theme = createTheme({
   palette: {
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
+    element: <Login/>
   },
   {
     path: "/app",
