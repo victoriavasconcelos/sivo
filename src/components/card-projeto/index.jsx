@@ -11,7 +11,7 @@ const card = {
 }
 export default function CardProjeto() {
   return (
-    <Card sx={{ width: 350, backgroundColor: '#151334' }}>
+    <Card sx={{ width: 350, background: '#151334' }}>
       <CardContent>
         <Grid container spacing={1}>
           <Grid item xs={12}>
