@@ -29,11 +29,9 @@ function NavBar() {
   const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
-    console.log(event)
     setAnchorElNav(event.currentTarget)
   }
   const handleOpenUserMenu = (event) => {
-    console.log(event)
     setAnchorElUser(event.currentTarget)
   }
 
@@ -43,6 +41,11 @@ function NavBar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
+  }
+
+  function logout(path) {
+    localStorage.clear()
+    navigate(path)
   }
 
   return (
@@ -156,7 +159,7 @@ function NavBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                  <Button textAlign='center' onClick={_ => navigate(setting.path)} sx={{color: 'white'}}>{setting.name}</Button>
+                  <Button textAlign='center' onClick={_ => logout(setting.path)} sx={{color: 'white'}}>{setting.name}</Button>
                 </MenuItem>
               ))}
             </Menu>

@@ -23,7 +23,6 @@ export default function CriarProjeto() {
                                     fullWidth
                                     value={nome}
                                     onChange={e => setNome(e.target.value)}
-                                    multiline
                                 />
                         </Grid>
                         <Grid item xs={6}>
@@ -33,7 +32,6 @@ export default function CriarProjeto() {
                                 fullWidth
                                 value={disciplina}
                                 onChange={e => setDisciplina(e.target.value)}
-                                multiline
                             />
                         </Grid>
                     </Grid>
@@ -45,7 +43,6 @@ export default function CriarProjeto() {
                                 fullWidth
                                 value={descricao}
                                 onChange={e => setDescricao(e.target.value)}
-                                multiline
                                 rows={5}
                             />
                         </Grid>
@@ -58,7 +55,6 @@ export default function CriarProjeto() {
                                     type="number"
                                     value={vagas}
                                     onChange={e => setVagas(e.target.value)}
-                                    multiline
                                 />
                             </Grid>
                             <Grid item>
@@ -67,7 +63,6 @@ export default function CriarProjeto() {
                                     required
                                     value={tempo}
                                     onChange={e => setTempo(e.target.value)}
-                                    multiline
                                     fullWidth
                                 />
                             </Grid>
@@ -80,7 +75,6 @@ export default function CriarProjeto() {
                             fullWidth
                             value={cronograma}
                             onChange={e => setCronograma(e.target.value)}
-                            multiline
                             rows={10}
                         />
                     </Grid>
