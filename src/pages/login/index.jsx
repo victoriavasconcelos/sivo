@@ -19,7 +19,11 @@ export default function Login() {
         const url = checked ? "professor/login" : "aluno/login"
         api.post(url, login)
             .then(result => {
-                const user = result.data
+                const user = {
+                    id : result.data.id,
+                    nome : result.data.nome,
+                    isProfessor : checked
+                }
                 localStorage.setItem("user", JSON.stringify(user))
                 navigate("/")
             })
@@ -65,14 +69,10 @@ export default function Login() {
                                     onClick={_ => navigate("/cadastro")}
                                 >Cadastre-se</Button>
                             </Grid>
-                        
                         </Grid>
-
-
                     </form>
                 </Grid>
             </Grid>
-
         </Grid>
     )
 }

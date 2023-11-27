@@ -1,6 +1,7 @@
 import { Box, Button, Chip, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { api } from "../../service/Api";
+import { useNavigate } from "react-router-dom";
 
 
 export default function CriarProjeto() {
@@ -15,6 +16,8 @@ export default function CriarProjeto() {
 
     const duracoes = [{value: 6, label: "6 meses"}, {value: 12, label: "12 meses"}, {value: 18, label: "18 meses"}, {value: 24, label: "24 meses"}, ]
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         api.get("disciplina")
             .then(result => {
@@ -26,6 +29,7 @@ export default function CriarProjeto() {
     }, [])
     
     function handleSubmit() {
+        const professor = JSON.parse(localStorage.getItem("user"))
         const body = {
             nome : nome,
             disciplinas : disciplina,
@@ -33,11 +37,16 @@ export default function CriarProjeto() {
             cronograma : cronograma,
             vagas : vagas,
             duracao : tempo,
+            professor_id : professor.id
         }
 
-        console.log(body)
+        api.post("projeto", body)
+            .then(result => {
+                console.log(result)
+                navigate('/detalhes-projeto', { state: result.data.id } )
+            })
     }
-
+    
     return (
         <section>
             <form className='forms'>

@@ -1,12 +1,20 @@
 import { Grid, Typography, Box } from "@mui/material";
 import logo from '../../assets/logo_descrição 2.png'
 import CardProjeto from "../../components/card-projeto";
+import { useEffect, useState } from "react";
+import { api } from "../../service/Api";
 
-const cards = [1, 2, 3, 4]
 export default function Home() {
+    const [cards, setCards] = useState([])
+    useEffect(() => {
+        api.get("projeto")
+            .then(result => {
+                setCards(result.data.slice(0, 4))
+            })
+    }, [])
     return (
         <section>
-            <Grid container spacing={8} alignItems='center' direction='column' sx={12}>
+            <Grid container spacing={8} alignItems='center' direction='column'>
                 <Grid item>
                     <Typography>
                         <img src={logo} alt="logo" />
@@ -14,8 +22,8 @@ export default function Home() {
                 </Grid>
                 <Grid item container direction='row' justifyContent='center' spacing={4}>
                     {cards.map(c => (
-                        <Grid item>
-                            <CardProjeto />
+                        <Grid item key={c.id}>
+                            <CardProjeto card={c}/>
                         </Grid>
                     ))}
                 </Grid>

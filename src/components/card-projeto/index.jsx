@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, Chip, Grid, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-var card =  {
+var card = {
   nome: "Plataforma Interativa de Aprendizado para Ciências Ambientais",
   descricao: "O projeto visa desenvolver uma plataforma online interativa e educacional voltada para o ensino e aprendizado das " +
     "ciências ambientais. A plataforma será uma ferramenta abrangente que oferecerá recursos educativos, como vídeos, animações, " +
@@ -11,11 +11,34 @@ var card =  {
     id: 1,
   },
   vagas: 20,
-  disciplinas: [{nome: "Front"}, {noome: "Web"}, {nome: "Back"}]
+  disciplinas: [{ nome: "Front" }, { noome: "Web" }, { nome: "Back" }],
+  situacao: 1
 }
 export default function CardProjeto(props) {
-  card = props.card
+  const { card } = props
+
   const navigate = useNavigate()
+  let situacao = ""
+  switch (card?.situacao) {
+    case 1:
+      situacao = 'ABERTO'
+      break;
+
+    case 2:
+      situacao = 'INICIADO'
+      break;
+
+    case 3:
+      situacao = 'ENCERRADO'
+      break;
+
+    case 4:
+      situacao = 'CANCELADO'
+      break;
+
+    default:
+      break;
+  }
   return (
     <Card sx={{ width: "20vw", background: '#151334' }}>
       <CardContent>
@@ -60,6 +83,18 @@ export default function CardProjeto(props) {
               </Typography>
             </Grid>
           </Grid>
+          <Grid item container spacing={1} direction='row' xs={12}>
+            <Grid item>
+              <Typography fontWeight={600}>
+                Situação:
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography color="text.primaru">
+                {situacao}
+              </Typography>
+            </Grid>
+          </Grid>
           <Grid item xs={12}>
             <Typography fontWeight={600} gutterBottom>
               Disiplinas:
@@ -68,14 +103,14 @@ export default function CardProjeto(props) {
           <Grid item>
             <Stack spacing={2} direction='row'>
               {card ? card.disciplinas.map(d => (
-                <Chip label={d.nome} />
+                <Chip label={d.nome} key={d.id}/>
               )) : ""}
             </Stack>
           </Grid>
         </Grid>
       </CardContent>
       <CardActions sx={{ justifyContent: 'end' }}>
-        <Button onClick={_ => navigate('/detalhes-projeto', { state: card.id } )} color="primary" size="small" variant="contained">Saiba mais</Button>
+        <Button onClick={_ => navigate('/detalhes-projeto', { state: card.id })} color="primary" size="small" variant="contained">Saiba mais</Button>
       </CardActions>
     </Card>
   );

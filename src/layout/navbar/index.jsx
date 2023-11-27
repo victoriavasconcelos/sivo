@@ -43,8 +43,10 @@ function NavBar() {
     setAnchorElUser(null)
   }
 
-  function logout(path) {
-    localStorage.clear()
+  function handleClick(path) {
+    if (path == "/login") {
+      localStorage.clear()
+    }
     navigate(path)
   }
 
@@ -157,7 +159,7 @@ function NavBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                  <Button onClick={_ => logout(setting.path)} sx={{color: 'white'}}>{setting.name}</Button>
+                  <Button onClick={_ => handleClick(setting.path)} sx={{color: 'white'}}>{setting.name}</Button>
                 </MenuItem>
               ))}
             </Menu>
