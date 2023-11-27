@@ -4,20 +4,24 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { api } from "../../service/Api";
 
-export default function Login() {
+export default function Cadastro () {
     const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
+    const [nome, setNome] = useState("")
+    const [matricula, setMatricula] = useState("")
     const [checked, setChecked] = useState(false);
 
     function handleSubmit() {
-        const login = {
+        const cadastro = {
             email: email,
-            senha: senha
+            senha: senha,
+            nome: nome,
+            matricula: matricula
         }
-        const url = checked ? "professor/login" : "aluno/login"
-        api.post(url, login)
+        const url = checked ? "professor" : "aluno"
+        api.post(url, cadastro)
             .then(result => {
                 const user = result.data
                 localStorage.setItem("user", JSON.stringify(user))
@@ -33,7 +37,21 @@ export default function Login() {
             <Grid container item xs={9} justifyContent="center" alignContent="center">
                 <Grid item id="form">
                     <form>
-                        <Typography variant="h4">Login</Typography>
+                        <Typography variant="h4">Cadastro</Typography>
+                        <TextField
+                            sx={{ marginTop: "20px" }}
+                            label="Nome Completo"
+                            fullWidth
+                            value={nome}
+                            onChange={e => setNome(e.target.value)}
+                        />
+                        <TextField
+                            sx={{ marginTop: "20px" }}
+                            label="Matricula"
+                            fullWidth
+                            value={matricula}
+                            onChange={e => setMatricula(e.target.value)}
+                        />
                         <TextField
                             sx={{ marginTop: "20px" }}
                             label="E-mail"
@@ -58,12 +76,12 @@ export default function Login() {
                             <Grid item>
                                 <Button
                                     onClick={_ => handleSubmit()}
-                                >Entrar</Button>
+                                >Cadastrar</Button>
                             </Grid>
                             <Grid item marginLeft={15}>
                                 <Button
-                                    onClick={_ => navigate("/cadastro")}
-                                >Cadastre-se</Button>
+                                    onClick={_ => navigate("/login")}
+                                >Login</Button>
                             </Grid>
                         
                         </Grid>
