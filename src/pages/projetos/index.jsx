@@ -1,19 +1,40 @@
 import { Autocomplete, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import CardProjeto from "../../components/card-projeto";
+import { useEffect, useState } from "react";
+import { api } from "../../service/Api";
 
 const professores = ['Jose Aldo', 'Rafaella Chrystiane de Moura Matos', 'Joao Tinoco', 'Diogenes Carvalho']
 const disciplinas = ['Front', 'Back', 'Testes', 'IA', 'Redes']
 const duracoes = [6, 12, 18]
 const nomes = ['Projeto de Web', 'Plataforma de ensino', 'Análise de Vulnerabilidades do Magister']
-const cards = []
-for (let c = 0; c < 20; c++) {
-    cards.push(
-        <Grid item>
-            <CardProjeto />
-        </Grid>
-    )
-}
+// var cards = []
+// for (let c = 0; c < 20; c++) {
+//     cards.push(
+//         <Grid item>
+//             <CardProjeto />
+//         </Grid>
+//     )
+// }
+
 export default function Projetos() {
+
+    const [cards, setCards] = useState([])
+    useEffect(() => {
+        api.get("projeto")
+            .then(result => {
+                console.log(result)
+                    const cardsResult = []
+                    result.data.map(card => {
+                        cardsResult.push(
+                            <Grid item>
+                                <CardProjeto card={card} />
+                            </Grid>
+                        )
+                    })
+                    setCards(cardsResult)
+            })
+    }, [])
+
     return (
         <Grid container spacing={4} padding={8} direction='column'>
             <Grid item xs={12} container justifyContent='space-between'>

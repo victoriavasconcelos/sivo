@@ -50,11 +50,10 @@ function NavBar() {
 
   return (
     <AppBar position="static" id = "navBar">
-      <Container maxWidth style={{ paddingRight: 60}}>
+      <Container maxWidth="true" style={{ paddingRight: 60}}>
         <Toolbar disableGutters>
           <Button
             variant="h6"
-            noWrap
             onClick={_ => navigate('/')}
             sx={{
               mr: 2,
@@ -101,14 +100,13 @@ function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Typography onClick={_ => navigate(page.path)} textAlign="center">{page.name}</Typography>
+                  <Typography onClick={_ => navigate(page.path)}>{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Button
             variant="h5"
-            noWrap
             onClick={_ => navigate('/')}
             sx={{
               mr: 2,
@@ -159,7 +157,7 @@ function NavBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                  <Button textAlign='center' onClick={_ => logout(setting.path)} sx={{color: 'white'}}>{setting.name}</Button>
+                  <Button onClick={_ => logout(setting.path)} sx={{color: 'white'}}>{setting.name}</Button>
                 </MenuItem>
               ))}
             </Menu>
